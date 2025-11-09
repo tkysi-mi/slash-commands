@@ -1,4 +1,4 @@
-# /dev-task-authoring
+# /dev-4-task-authoring
 
 ## 目的
 
@@ -7,7 +7,7 @@
 
 ## 前提
 
-- `/dev-plan-intake`および`/dev-system-design`が完了し、PRD・アーキテクチャ・リスクログが最新である。
+- `/dev-1-plan-intake`および`/dev-3-system-design`が完了し、PRD・アーキテクチャ・リスクログが最新である。
 - Windsurfの`code_search`/`read_file`で設計資料や既存Storyを参照できる。
 - 使用するトラッキングツール（Jira、Linearなど）でストーリーを更新できる権限がある。
 
@@ -35,7 +35,7 @@
 4. バトンパスと通知
 
    - 完成したStoryをScrum Masterや実装担当へ共有し、キックオフミーティングやペアリングの必要性を確認する。
-   - 追加ワークフロー（例: `/dev-build-execution`, `/dev-swarm-qa`）を呼び出す条件をStory内に明記する。
+   - 追加ワークフロー（例: `/dev-build-execution`, `/dev-7-swarm-qa`）を呼び出す条件をStory内に明記する。
 
 ## 完了条件
 

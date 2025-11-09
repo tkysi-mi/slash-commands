@@ -1,4 +1,4 @@
-# /dev-swarm-qa
+# /dev-7-swarm-qa
 
 ## 目的
 
@@ -7,7 +7,7 @@
 
 ## 前提
 
-- `/dev-implementation`でStoryファイルとPRが準備され、テストログ・変更概要が整っている。
+- `/dev-5-implementation`でStoryファイルとPRが準備され、テストログ・変更概要が整っている。
 - QAポリシー、セキュリティ基準、リリース条件がREADMEやRulesに明記されている。
 - スウォーム構成に利用するMCPツール・Claude Skillsへのアクセス権限が有効化されている。
 - 必要なメタデータをWindsurfの`code_search`/`read_file`/`grep_search`で取得でき、CIログなどが欠落している場合は`update_plan`で補完タスクを管理できる。
@@ -54,7 +54,7 @@
 
 2. フィードバック統合と再検証
 
-   - 修正が必要な場合は`Call /dev-implementation`を指示し、追跡用チェックリストをStoryに追加する。
+   - 修正が必要な場合は`Call /dev-5-implementation`を指示し、追跡用チェックリストをStoryに追加する。
    - 修正後は差分テストや再スキャンを実施し、結果をStoryとPRに更新する。
 
 3. リリース前評価とハンドオーバー

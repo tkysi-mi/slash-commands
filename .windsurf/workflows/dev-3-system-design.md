@@ -1,4 +1,4 @@
-# /dev-system-design
+# /dev-3-system-design
 
 ## 目的
 
@@ -7,7 +7,7 @@
 
 ## 前提
 
-- `/dev-plan-intake`が完了し、ゴール・制約・優先度が明文化されている。
+- `/dev-1-plan-intake`が完了し、ゴール・制約・優先度が明文化されている。
 - Windsurfの`code_search`/`read_file`で既存設計や依存モジュールの情報を取得できる。
 - 設計レビューが可能なステークホルダー（Architect、PM、QA）がアクセスできる。
 
