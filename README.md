@@ -67,14 +67,21 @@ Windsurfで活用するスラッシュコマンドとワークフローの保管
    - 成果物の明確化（具体的なファイル名）
    - フェーズごとの受け入れ基準
 
-5. **実装実行**: `/c-001-ImplementTask`
+5. **タスクレビュー**: `/b-004-ReviewTask`
+   - タスク定義 ↔ 実装計画の一貫性チェック
+   - リサーチ ↔ 実装計画の整合性検証
+   - 変更内容・ユーザーストーリーのカバレッジ確認
+   - 技術選定の反映、リスク軽減策の確認
+   - 実装開始可否の判定
+
+6. **実装実行**: `/c-001-ImplementTask`
    - 各ステップを順次実行（speckit.implementスタイル）
    - 依存関係を尊重、並列実行を最適化（`[P]`マーク）
    - ステップごとにテスト実行とチェックボックス更新
    - フェーズごとに受け入れ基準を確認
    - 最終テスト、コミット、PR作成
 
-6. **ドキュメント更新**: `/c-002-UpdateDocumentation`
+7. **ドキュメント更新**: `/c-002-UpdateDocumentation`
    - 実装完了後にドキュメントを実装内容に合わせて更新
    - タスクドキュメント更新（a-definition.md, b-research.md, c-implementation.md）
    - プロジェクトドキュメント更新（features-implemented, domain-model, api-spec, data-model）
