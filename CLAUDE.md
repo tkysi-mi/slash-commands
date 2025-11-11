@@ -11,28 +11,91 @@ Windsurfで活用するスラッシュコマンドとワークフローの保管
 ### ディレクトリ構造
 
 - `.windsurf/workflows/` — Windsurfスラッシュコマンドの実体。各Markdownファイルがコマンド定義になる
-- `.windsurf/templates/` — 再利用可能なテンプレート（システム概要テンプレートなど）
+  - `a-NNN-*.md` — プロジェクト設計ワークフロー（要件定義、設計、アーキテクチャ）
+  - `b-NNN-*.md` — タスク管理ワークフロー（タスク作成、リサーチ、実装計画）
+  - `c-NNN-*.md` — 実装実行ワークフロー（ステップバイステップ実装）
+  - `x-*.md` — 補助的なワークフロー（レビュー、リファクタリング、Git操作など）
+  - `z-*.md` — メタワークフロー（ワークフロー作成支援など）
+- `.windsurf/templates/` — 再利用可能なテンプレート
+  - `project/` — プロジェクトレベルのテンプレート
+  - `tasks/task-template/` — タスクレベルのテンプレート（a-definition.md, b-research.md, c-implementation.md）
+- `docs/tasks/` — 実プロジェクトでのタスク管理ディレクトリ（各プロジェクトで作成）
+  - `task000001-{スラッグ}/` — 個別タスクディレクトリ（定義、リサーチ、実装タスクリスト）
 - `slash-commands-best-practices.md` — ワークフロー作成の設計原則・セキュリティ・運用ガイドライン
 
 ### ワークフロー体系
 
-開発フェーズごとに番号付きのワークフローを定義：
+**A系列：プロジェクト設計ワークフロー**
+- `/a-001-SetupDocStructure` — プロジェクトドキュメント構造のセットアップ
+- `/a-002-InitializeProject` — プロジェクト初期化（課題、解決策、スコープ）
+- `/a-003-CreateScenarios` — BDD形式でのシナリオ定義（Gherkin）
+- `/a-004-DefineDomainModel` — ドメインモデル定義（Event Storming）
+- `/a-005-CreateDomainDiagram` — DDD設計（Bounded Context、Aggregate）
+- `/a-006-ReviewRequirementsDomain` — 要件とドメインモデルのレビュー
+- `/a-007-DefineTechStack` — 技術スタック選定
+- `/a-008-DefineRepositoryStructure` — リポジトリ構造定義
+- `/a-009-DefineScreenDesign` — 画面設計（Empty State重視）
+- `/a-010-DefineDataModel` — データモデル設計（ERD）
+- `/a-011-DefineAPISpec` — API仕様定義
+- `/a-012-DefineArchitecture` — アーキテクチャ設計（ADR）
+- `/a-013-DefineInfrastructure` — インフラ設計（RPO/RTO）
 
-1. `/dev-1-plan-intake` — 依頼内容の収集と関係者合意
-2. `/dev-2-planning` — PRD作成とアーキテクチャ設計
-3. `/dev-3-system-design` — 詳細システム設計
-4. `/dev-4-task-authoring` — Storyファイル作成とタスク化
-5. `/dev-5-implementation` — 実装・テスト・PR作成
-6. `/dev-6-commit-message` — コミットメッセージ生成
-7. `/dev-7-swarm-qa` — マルチエージェントQA
+**B系列：タスク管理ワークフロー**
+- `/b-000-CreateTaskDirectory` — タスクディレクトリ作成（task000001-xxx形式）
+- `/b-001-CreateTaskDefinition` — タスク定義（目的、ユーザーストーリー、受け入れ基準）
+- `/b-002-CreateTaskResearch` — リサーチ（ベストプラクティス、既存コード調査）
+- `/b-003-CreateTaskImplementation` — 実装計画（フェーズ、ステップ、受け入れ基準）
 
-加えて、`/create-workflow` が新規ワークフロー追加の標準手順を提供。
+**C系列：実装実行ワークフロー**
+- `/c-001-ImplementTask` — タスク実装実行（speckit.implementスタイル）
+
+**X系列：補助的なワークフロー**
+- `/x-CatchUp` — プロジェクト状況の把握
+- `/x-Clarify` — 要件の明確化
+- `/x-PushToGithub` — GitHub へのプッシュ
+- `/x-RefactoringExpert` — リファクタリング支援
+- `/x-ResearchCodeReview` — コードレビュー
+- `/x-RootCauseAnalysis` — 根本原因分析
+
+**Z系列：メタワークフロー**
+- `/z-CreateWorkflow` — 新規ワークフロー作成支援
+
+### タスク管理ワークフローの詳細
+
+タスクの計画から実装まで、spec-kit（GitHub）にインスパイアされた体系的なワークフローを提供：
+
+**ディレクトリ構造**: `docs/tasks/task000001-{スラッグ}/`
+- タスクIDは6桁ゼロパディング（task000001, task000002, ...）
+- 各タスクに3つのドキュメント（a-definition.md, b-research.md, c-implementation.md）
+
+**実行フロー**:
+1. **b-000**: タスクディレクトリ作成とテンプレートコピー
+2. **b-001**: タスク定義（目的、ユーザーストーリー、受け入れ基準を明確化）
+3. **b-002**: リサーチ（ベストプラクティス調査、既存コード分析、技術選定、リスク評価）
+4. **b-003**: 実装計画（フェーズ分割、ステップ定義、受け入れ基準）
+5. **c-001**: 実装実行（speckit.implementスタイル）
+   - ステップバイステップ実行
+   - 依存関係の尊重、並列実行の最適化（`[P]`マーク）
+   - 各ステップでテスト実行、チェックボックス自動更新
+   - フェーズごとの受け入れ基準確認
+   - 最終テスト、コミット、PR作成
+
+**speckit.implement との対応**:
+- constitution → タスク定義（a-definition.md）
+- specification → タスク定義+リサーチ（a-definition.md + b-research.md）
+- implementation plan → 実装タスクリスト（c-implementation.md）
+- tasks.md 解析 → c-implementation.md のフェーズ/ステップ解析
+- 依存関係の尊重 → ステップの順序確認
+- 並列実行の最適化 → `[P]` マーク識別
+- TDD アプローチ → 各ステップでのテスト実行
+- ローカル CLI コマンド実行 → Bash ツールでコマンド実行
 
 ### 設計哲学
 
 - **Markdown中心**: 実行可能コードは含めず、Windsurfのコマンド参照に特化
 - **コンテキスト最適化**: 12,000文字制限を意識し、長文資料は`@path/to/file.md`形式で参照
 - **チェイン構築**: ワークフロー間で`Call /workflow-name`により連携可能な粒度で分割
+- **Spec-Driven Development**: spec-kitの思想を取り入れ、仕様が実行可能なブループリントとして機能
 - **BMAD Method適用**: Analyst/PM/Architect/Devなど多層エージェント計画の考え方を反映
 - **Claude-Flowスキル活用**: pair-programming、agentdb-vector-searchなど外部スキルの組み込み前提
 
@@ -58,9 +121,14 @@ Windsurfで活用するスラッシュコマンドとワークフローの保管
 
 ## 主要ファイルの役割
 
-- `README.md` — リポジトリの使い方と更新ポリシー
+- `README.md` — リポジトリの使い方、ディレクトリ構成、タスク管理の使い方、更新ポリシー
+- `CLAUDE.md` — Claude Code向けプロジェクト説明（ワークフロー体系、設計哲学）
 - `slash-commands-best-practices.md` — ワークフロー設計のベストプラクティス集。公式ドキュメントとCursor/Claude Codeの知見を統合
-- `.windsurf/templates/system-description-template.md` — PRD作成時のテンプレート（プロダクト概要・業務要件・機能要件・画面遷移・テストケース）
+- `.windsurf/templates/project/` — プロジェクトレベルのテンプレート（システム概要、PRDなど）
+- `.windsurf/templates/tasks/task-template/` — タスクレベルのテンプレート
+  - `a-definition.md` — タスク定義テンプレート
+  - `b-research.md` — リサーチテンプレート
+  - `c-implementation.md` — 実装タスクリストテンプレート
 
 ## 運用方針
 
@@ -75,8 +143,33 @@ Windsurfで活用するスラッシュコマンドとワークフローの保管
 - コミットメッセージにはStory IDまたは課題番号を含める
 - PR作成時はテンプレートを利用し、変更概要/テスト結果/影響範囲を明記
 
+## クイックリファレンス
+
+### プロジェクト開始時
+1. `/a-001-SetupDocStructure` — ドキュメント構造セットアップ
+2. `/a-002-InitializeProject` — プロジェクト初期化
+3. `/a-003-CreateScenarios` → `/a-004-DefineDomainModel` — 要件定義とドメインモデル
+4. `/a-007-DefineTechStack` → `/a-008-DefineRepositoryStructure` — 技術選定とリポジトリ構造
+
+### タスク実装時
+1. `/b-000-CreateTaskDirectory` — タスクディレクトリ作成
+2. `/b-001-CreateTaskDefinition` — タスク定義
+3. `/b-002-CreateTaskResearch` — リサーチ
+4. `/b-003-CreateTaskImplementation` — 実装計画
+5. `/c-001-ImplementTask` — 実装実行
+
+### 日常作業
+- `/x-CatchUp` — プロジェクト状況把握
+- `/x-Clarify` — 要件明確化
+- `/x-ResearchCodeReview` — コードレビュー
+- `/x-PushToGithub` — GitHub プッシュ
+
+### 新規ワークフロー作成
+- `/z-CreateWorkflow` — ワークフロー作成支援
+
 ## 参考リンク
 
 - Windsurf公式: https://docs.windsurf.com/windsurf/cascade/workflows
 - Claude Code公式: https://docs.claude.com/en/docs/claude-code/slash-commands
+- spec-kit (GitHub): https://github.com/github/spec-kit
 - BMAD Method / Claude-Flow関連資料は各ワークフロー内で適宜参照

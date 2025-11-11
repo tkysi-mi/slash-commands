@@ -1,5 +1,6 @@
-# Claude Code personal settings
+# Personal settings
 .claude/
+.serena/
 
 # Editor directories and files
 .vscode/
@@ -33,6 +34,14 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Test caches
+.pytest_cache/
 
 # Build outputs (if any)
 dist/
