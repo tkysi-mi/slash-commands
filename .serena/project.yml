@@ -1,0 +1,4 @@
+project_name: slash-commands
+language: bash
+description: Windsurf slash command workflows and documentation
+encoding: utf-8
