@@ -3,7 +3,7 @@ description: データベーススキーマの変更を安全にマイグレー�
 auto_execution_mode: 1
 ---
 
-# /x-CreateMigration
+# /x-Migration-Create
 
 ## 目的
 

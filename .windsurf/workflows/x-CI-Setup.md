@@ -3,7 +3,7 @@ description: GitHub Actions/GitLab CIでビルド・テスト・デプロイを�
 auto_execution_mode: 1
 ---
 
-# /x-SetupCI
+# /x-CI-Setup
 
 ## 目的
 
@@ -529,7 +529,7 @@ CI ワークフローの設定が完了したら、実際にコードをプッ�
 4. ログを確認
    - すべてのジョブ（lint, test, build）が成功しているか確認
    - エラーがある場合は、ログを読んで原因を特定
-   - `/x-FixCIFailure` ワークフローを使用して修正
+   - `/x-CI-FixFailure` ワークフローを使用して修正
 
 5. PR で CI ステータスを確認
    - PR ページで緑色のチェックマークが表示されることを確認

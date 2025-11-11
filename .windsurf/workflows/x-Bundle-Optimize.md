@@ -3,7 +3,7 @@ description: Webpackバンドルサイズを分析し、コード分割・遅延
 auto_execution_mode: 1
 ---
 
-# /x-OptimizeBundle
+# /x-Bundle-Optimize
 
 ## 目的
 

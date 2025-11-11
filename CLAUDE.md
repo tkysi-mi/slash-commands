@@ -14,7 +14,7 @@ Windsurfで活用するスラッシュコマンドとワークフローの保管
   - `a-NNN-*.md` — プロジェクト設計ワークフロー（要件定義、設計、アーキテクチャ）
   - `b-NNN-*.md` — タスク管理ワークフロー（タスク作成、リサーチ、実装計画）
   - `c-NNN-*.md` — 実装実行ワークフロー（ステップバイステップ実装）
-  - `x-*.md` — 補助的なワークフロー（レビュー、リファクタリング、Git操作など）
+  - `x-Object-Action.md` — 補助的なワークフロー（例: `x-Code-Refactor`, `x-Repository-PushToGithub`, `x-CI-Setup`）
   - `z-*.md` — メタワークフロー（ワークフロー作成支援など）
 - `.windsurf/templates/` — 再利用可能なテンプレート
   - `project/` — プロジェクトレベルのテンプレート
@@ -49,13 +49,23 @@ Windsurfで活用するスラッシュコマンドとワークフローの保管
 **C系列：実装実行ワークフロー**
 - `/c-001-ImplementTask` — タスク実装実行（speckit.implementスタイル）
 
-**X系列：補助的なワークフロー**
-- `/x-CatchUp` — プロジェクト状況の把握
-- `/x-Clarify` — 要件の明確化
-- `/x-PushToGithub` — GitHub へのプッシュ
-- `/x-RefactoringExpert` — リファクタリング支援
-- `/x-ResearchCodeReview` — コードレビュー
-- `/x-RootCauseAnalysis` — 根本原因分析
+**X系列：補助的なワークフロー（Object-Action形式）**
+- `/x-Context-CatchUp` — プロジェクト状況の把握
+- `/x-Requirements-Clarify` — 要件の明確化
+- `/x-Repository-PushToGithub` — GitHub へのプッシュ
+- `/x-Code-Refactor` — リファクタリング支援
+- `/x-Code-ResearchAndReview` — コードレビュー
+- `/x-Problem-RootCauseAnalysis` — 根本原因分析
+- `/x-CI-Setup` — CI/CD セットアップ
+- `/x-CI-FixFailure` — CI 失敗修正
+- `/x-Logging-Add` — ログ実装
+- `/x-Dependencies-Update` — 依存関係更新
+- `/x-DevEnvironment-Setup` — 開発環境セットアップ
+- `/x-Component-Create` — コンポーネント生成
+- `/x-Migration-Create` — マイグレーション作成
+- `/x-Database-Seed` — データベースシード
+- `/x-Bundle-Optimize` — バンドル最適化
+- `/x-Accessibility-Check` — アクセシビリティ監査
 
 **Z系列：メタワークフロー**
 - `/z-CreateWorkflow` — 新規ワークフロー作成支援
@@ -159,10 +169,13 @@ Windsurfで活用するスラッシュコマンドとワークフローの保管
 5. `/c-001-ImplementTask` — 実装実行
 
 ### 日常作業
-- `/x-CatchUp` — プロジェクト状況把握
-- `/x-Clarify` — 要件明確化
-- `/x-ResearchCodeReview` — コードレビュー
-- `/x-PushToGithub` — GitHub プッシュ
+- `/x-Context-CatchUp` — プロジェクト状況把握
+- `/x-Requirements-Clarify` — 要件明確化
+- `/x-Code-ResearchAndReview` — コードレビュー
+- `/x-Repository-PushToGithub` — GitHub プッシュ
+- `/x-CI-Setup` — CI/CD セットアップ
+- `/x-CI-FixFailure` — CI 失敗修正
+- `/x-Dependencies-Update` — 依存関係更新
 
 ### 新規ワークフロー作成
 - `/z-CreateWorkflow` — ワークフロー作成支援

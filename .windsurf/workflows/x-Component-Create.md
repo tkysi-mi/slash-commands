@@ -3,7 +3,7 @@ description: React/Vueコンポーネントをボイラープレート、Props�
 auto_execution_mode: 1
 ---
 
-# /x-CreateComponent
+# /x-Component-Create
 
 ## 目的
 

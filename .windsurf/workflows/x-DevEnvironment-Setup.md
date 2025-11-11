@@ -3,7 +3,7 @@ description: 新規開発者やクリーン環境で開発環境を素早くセ�
 auto_execution_mode: 1
 ---
 
-# /x-SetupDevEnvironment
+# /x-DevEnvironment-Setup
 
 ## 目的
 

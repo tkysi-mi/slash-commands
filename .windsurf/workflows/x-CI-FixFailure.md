@@ -3,7 +3,7 @@ description: CI/CDパイプラインの失敗をデバッグし、根本原因�
 auto_execution_mode: 1
 ---
 
-# /x-FixCIFailure
+# /x-CI-FixFailure
 
 ## 目的
 
