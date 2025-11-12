@@ -49,9 +49,10 @@ Windsurfで活用するスラッシュコマンドとワークフローの保管
 
 プロジェクト開始時に一度実行し、要件定義からドメインモデル、設計までを体系的に作成します。
 
-### 実行順序
+### 実行順序（A系列）
 
 **要件・ドメインフェーズ**（a-001 〜 a-006）:
+
 1. `/a-001-SetupDocStructure` — ドキュメント構造のセットアップ
 2. `/a-002-InitializeProject` — プロジェクト初期化（課題、解決策、スコープ）
 3. `/a-003-CreateScenarios` — BDD形式でのシナリオ定義（Gherkin）
@@ -60,14 +61,15 @@ Windsurfで活用するスラッシュコマンドとワークフローの保管
 6. **`/a-006-ReviewRequirementsDomain`** — 要件とドメインモデルのレビュー ⭐
 
 **設計フェーズ**（a-007 〜 a-014）:
-7. `/a-007-DefineTechStack` — 技術スタック選定
-8. `/a-008-DefineRepositoryStructure` — リポジトリ構造定義
-9. `/a-009-DefineScreenDesign` — 画面設計（Empty State重視）
-10. `/a-010-DefineDataModel` — データモデル設計（ERD）
-11. `/a-011-DefineAPISpec` — API仕様定義
-12. `/a-012-DefineArchitecture` — アーキテクチャ設計（ADR）
-13. `/a-013-DefineInfrastructure` — インフラ設計（RPO/RTO）
-14. **`/a-014-ReviewDesign`** — 設計ドキュメントの一貫性レビュー ⭐
+
+1. `/a-007-DefineTechStack` — 技術スタック選定
+2. `/a-008-DefineRepositoryStructure` — リポジトリ構造定義
+3. `/a-009-DefineScreenDesign` — 画面設計（Empty State重視）
+4. `/a-010-DefineDataModel` — データモデル設計（ERD）
+5. `/a-011-DefineAPISpec` — API仕様定義
+6. `/a-012-DefineArchitecture` — アーキテクチャ設計（ADR）
+7. `/a-013-DefineInfrastructure` — インフラ設計（RPO/RTO）
+8. **`/a-014-ReviewDesign`** — 設計ドキュメントの一貫性レビュー ⭐
 
 ### レビューワークフローの役割
 
@@ -113,6 +115,7 @@ Windsurfで活用するスラッシュコマンドとワークフローの保管
 ### タスクレビューの重要性
 
 b-004は実装開始前の「最後の砦」として、以下を保証します：
+
 - すべての変更内容に実装ステップが存在する（漏れ防止）
 - すべてのユーザーストーリーが実装でカバーされている（要件充足）
 - 技術的リスクの軽減策が計画されている（リスク管理）
@@ -122,7 +125,7 @@ b-004は実装開始前の「最後の砦」として、以下を保証します
 
 タスクレビュー（b-004）完了後、実装を実行し、完了後にドキュメントを更新します。
 
-### 実行順序
+### 実行順序（C系列）
 
 1. **実装実行**: `/c-001-ImplementTask`
    - 各ステップを順次実行（speckit.implementスタイル）
@@ -142,6 +145,7 @@ b-004は実装開始前の「最後の砦」として、以下を保証します
 ### 実装
 
 c-001は以下の原則に従います：
+
 - **仕様駆動開発**: タスク定義とリサーチが実行可能な仕様として機能
 - **段階的な実装**: ステップごとに進める（1ステップ = 1-3時間）
 - **依存関係の尊重**: 順序を守り、前ステップ完了を確認
@@ -155,31 +159,37 @@ c-001は以下の原則に従います：
 ### 主要なワークフロー
 
 **コンテキスト把握・要件明確化**:
+
 - `/x-Context-CatchUp` — プロジェクト状況の把握
 - `/x-Requirements-Clarify` — 要件の明確化
 
 **コード品質・リファクタリング**:
+
 - `/x-Code-Refactor` — リファクタリング支援
 - `/x-Code-ResearchAndReview` — コードレビュー
 - `/x-Problem-RootCauseAnalysis` — 根本原因分析
 
 **開発環境・CI/CD**:
+
 - `/x-DevEnvironment-Setup` — 開発環境セットアップ
 - `/x-CI-Setup` — CI/CDセットアップ
 - `/x-CI-FixFailure` — CI失敗修正
 - `/x-Logging-Add` — ログ実装
 
 **コード生成・最適化**:
+
 - `/x-Component-Create` — UIコンポーネント生成
 - `/x-Migration-Create` — マイグレーション作成
 - `/x-Database-Seed` — データベースシード
 - `/x-Bundle-Optimize` — バンドル最適化
 
 **Git・リポジトリ管理**:
+
 - `/x-Repository-Push` — GitHub/GitLabへのプッシュ（汎用）
 - `/x-Repository-PushToGithub` — GitHubへのプッシュ
 
 **その他**:
+
 - `/x-Dependencies-Update` — 依存関係更新
 - `/x-Accessibility-Check` — アクセシビリティ監査
 
@@ -194,7 +204,7 @@ c-001は以下の原則に従います：
 
 本システムは以下の順序で実行することで、要件定義から実装、ドキュメント更新まで一貫した開発プロセスを実現します：
 
-```
+```text
 【プロジェクト開始時】（1回のみ）
 ┌─────────────────────────────────────────┐
 │ A系列: プロジェクト設計                    │
@@ -244,7 +254,7 @@ c-001は以下の原則に従います：
 
 ### タスクディレクトリ構造の例
 
-```
+```text
 docs/
 └── tasks/
     ├── task000001-email-verification/
